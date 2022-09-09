@@ -1,0 +1,39 @@
+# T-Pot Image Builder (use only for building docker images)
+version: '2.3'
+
+services:
+
+##################
+#### NSM
+##################
+
+# Suricata service
+  suricata:
+    build: suricata/.
+    image: "dtagdevsec/suricata:2204"
+
+
+##################
+#### Tools
+##################
+
+#### ELK
+## Elasticsearch service
+  elasticsearch:
+    build: elk/elasticsearch/.
+    image: "dtagdevsec/elasticsearch:2204"
+
+## Kibana service
+  kibana:
+    build: elk/kibana/.
+    image: "dtagdevsec/kibana:2204"
+
+## Logstash service
+  logstash:
+    build: elk/logstash/.
+    image: "dtagdevsec/logstash:2204"
+
+# Nginx service
+  nginx:
+    build: nginx/.
+    image: "dtagdevsec/nginx:2204"
